@@ -21,8 +21,6 @@ RUN rm -d -r /slurm_rpm
 ##This ^ command makes the image heavyer for some reason...##
 RUN rm -d -r /var/cache/*
 RUN rm /tmp/*
-RUN touch /etc/hostname
-RUN echo "slurm_node1" > /etc/hostname
 
 COPY ./etc/script.sh /script.sh
 CMD [ "/script.sh" ]

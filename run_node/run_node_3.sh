@@ -1,2 +1,2 @@
 echo -e "\033[0;32m###########_Starting node container_###########\033[0;0m"
-docker run --name="slurm_node3" --hostname="slurm_node3" --network "slurm-network" -v /home/slurm_node/etc/slurm_conf:/etc/slurm -v /sys/fs/cgroup:/sys/fs/cgroup:ro node
+docker run --name="slurm_node3" --hostname="slurm_node3" --network "slurm-network" -v /home/slurm_node/etc/slurm_conf:/etc/slurm -v /sys/fs/cgroup:/sys/fs/cgroup:ro slurm_node

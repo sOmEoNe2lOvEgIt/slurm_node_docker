@@ -1,5 +1,5 @@
 echo -e "\033[0;31m"
-docker rm  $(docker stop $(docker ps -a -q --filter ancestor="node" --format="{{.ID}}"))
-docker image rm -f node
+docker rm  $(docker stop $(docker ps -a -q --filter ancestor="slurm_node" --format="{{.ID}}"))
+docker image rm -f slurm_node
 echo -e "\033[0;32m###########_Building image_###########\033[0;0m"
-docker build -t node .
+docker build -t slurm_node .
