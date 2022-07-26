@@ -20,7 +20,7 @@ RUN rm -d -r /slurm_rpm
 ##RUN yum clean all
 ##This ^ command makes the image heavyer for some reason...##
 RUN rm -d -r /var/cache/*
-RUN rm /tmp/*
+RUN rm -r /tmp/*
 
 COPY ./etc/script.sh /script.sh
 CMD [ "/script.sh" ]
