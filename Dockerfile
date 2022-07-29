@@ -7,6 +7,7 @@ COPY ./etc/slurm_rpm/ /slurm_rpm/
 
 #Install munge for slurm
 RUN yum install epel-release -y
+RUN yum update -y
 RUN yum install munge munge-libs munge-devel libnsl mariadb mariadb-devel nc -y
 COPY ./etc/munge/* /etc/munge/
 
