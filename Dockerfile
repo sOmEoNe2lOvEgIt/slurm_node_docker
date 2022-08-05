@@ -5,16 +5,12 @@ FROM centos:7
 RUN mkdir /slurm_rpm && mkdir /var/log/slurm/
 COPY ./etc/slurm_rpm/ /slurm_rpm/
 
-#Install munge for slurm
-RUN yum install epel-release -y
-RUN yum update -y
-RUN yum install munge munge-libs munge-devel libnsl mariadb mariadb-devel nc -y
-COPY ./etc/munge/* /etc/munge/
-
-#Install slurm and plugins from imported rpms
+#Install munge for slurm and all rpms
 RUN useradd slurm
 RUN mkdir /opt/SLURM && chown -R -H slurm /opt/SLURM
+RUN yum install epel-release munge munge-libs munge-devel libnsl mariadb mariadb-deve -y
 RUN yum install ./slurm_rpm/* -y
+COPY ./etc/munge/* /etc/munge/
 
 #Cleanup after install
 RUN rm -d -r /slurm_rpm
